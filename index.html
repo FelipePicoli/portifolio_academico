@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felipe Donizete Picoli | Físico Teórico & Computacional</title>
+  <title>Felipe Donizete Picoli | Theoretical & Computational Physicist</title>
   
-  <!-- Tipografia Google Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS RESET & VARIAVEIS */
+    /* CSS RESET & VARIABLES */
     :root {
       --bg-dark: #0a0c10;
       --bg-card: #12161f;
@@ -148,7 +148,24 @@
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 900px;
+    }
+
+    .hero-header-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile-avatar {
+      width: 165px;
+      height: 165px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-blue);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+      flex-shrink: 0;
     }
 
     .hero-tag {
@@ -160,21 +177,20 @@
       border-radius: 50px;
       font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.75rem;
       letter-spacing: 0.5px;
     }
 
     .hero-title {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       line-height: 1.1;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       letter-spacing: -1px;
     }
 
     .hero-subtitle {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
       font-weight: 300;
     }
 
@@ -182,7 +198,7 @@
       font-size: 1.1rem;
       color: var(--text-muted);
       margin-bottom: 2.5rem;
-      max-width: 680px;
+      max-width: 720px;
     }
 
     .hero-buttons {
@@ -253,7 +269,7 @@
       font-size: 0.85rem;
     }
 
-    /* SOBRE MIM */
+    /* ABOUT ME */
     .about-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -274,7 +290,7 @@
       gap: 0.75rem;
     }
 
-    /* FORMAÇÃO ACADÊMICA */
+    /* EDUCATION */
     .timeline {
       position: relative;
       padding-left: 1.5rem;
@@ -325,7 +341,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* PUBLICAÇÕES (TABS) */
+    /* PUBLICATIONS (TABS) */
     .tabs {
       display: flex;
       gap: 1rem;
@@ -391,7 +407,7 @@
       font-style: italic;
     }
 
-    /* CÓDIGOS ABERTOS / PROJETOS */
+    /* OPEN SOURCE / PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -433,7 +449,7 @@
       margin-bottom: 1.5rem;
     }
 
-    /* FOOTER & CONTATO */
+    /* FOOTER & CONTACT */
     .footer {
       padding: 4rem 0 2rem;
       background: #06080a;
@@ -474,12 +490,21 @@
       transform: translateY(0);
     }
 
-    /* RESPONSIVO */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero-title { font-size: 2.5rem; }
+      .hero-title { font-size: 2.3rem; }
+      .hero-header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+      .profile-avatar {
+        width: 125px;
+        height: 125px;
+      }
       .about-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; } /* Pode ser expandido com menu hambúrguer se necessário */
+      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -490,11 +515,11 @@
     <div class="container nav-container">
       <a href="#" class="logo">Felipe <span>Picoli</span></a>
       <ul class="nav-links">
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#education">Formação</a></li>
-        <li><a href="#publications">Publicações</a></li>
-        <li><a href="#projects">Códigos Abertos</a></li>
-        <li><a href="#contact">Contato</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Open Source</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -502,45 +527,56 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="container hero-content fade-in">
-      <span class="hero-tag">Doutorando em Física Teórica</span>
-      <h1 class="hero-title">Felipe Donizete Picoli</h1>
-      <h2 class="hero-subtitle">Física de Muitos Corpos • Sistemas Eletrônicos Fortemente Correlacionados</h2>
-      <p class="hero-description">
-        Especialista na simulação e estudo de dinâmica quântica fora do equilíbrio, transições de fase e emaranhamento quântico. Experiência avançada em Matrix Product States (MPS/DMRG), Numerical Renormalization Group (NRG) e Efeito Kondo.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">Ver Códigos & Projetos</a>
-        <a href="#publications" class="btn btn-secondary">Explorar Publicações</a>
-        <a href="https://github.com/FelipePicoli" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+      
+      <!-- HEADER COM FOTO E NOME -->
+      <div class="hero-header-container">
+        <img src="profile.jpg" alt="Felipe Donizete Picoli" class="profile-avatar">
+        
+        <div>
+          <span class="hero-tag">PhD Candidate in Theoretical Physics</span>
+          <h1 class="hero-title">Felipe Donizete Picoli</h1>
+          <h2 class="hero-subtitle">Many-Body Physics</h2>
+        </div>
       </div>
+
+      <p class="hero-description">
+        Specialist in simulating and studying non-equilibrium quantum dynamics and impurity systems. Experience in Numerical Renormalization Group (NRG), Matrix Product States (MPS/DMRG), and Strongly Correlated Systems.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View Open Source Code</a>
+        <a href="#publications" class="btn btn-secondary">Explore Publications</a>
+        <a href="https://github.com/FelipePicoli" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile</a>
+      </div>
+
     </div>
   </section>
 
-  <!-- SOBRE MIM -->
+  <!-- ABOUT ME -->
   <section id="about">
     <div class="container fade-in">
-      <h2 class="section-title">Sobre Mim</h2>
+      <h2 class="section-title">About Me</h2>
       <div class="about-grid">
         <div class="about-card">
           <p style="margin-bottom: 1rem;">
-            Sou físico computacional e teórico focado no desenvolvimento de métodos numéricos para descrever sistemas de muitos corpos quânticos e fenômenos de impurezas quânticas. 
+            I am a computational and theoretical physicist specializing in the development of numerical methods to describe quantum many-body systems and quantum impurity phenomena.
           </p>
           <p style="margin-bottom: 1.5rem;">
-            Atualmente, faço doutorado no Instituto de Física de São Carlos (USP), investigando espalhamento e fotoemissão de raios-X dependentes do tempo em metais, além de ter realizado estágio de pesquisa na Ludwig-Maximilians-Universität (LMU) em Munique, Alemanha.
+            Currently pursuing my PhD at the São Carlos Institute of Physics (USP), I research time-dependent X-ray absorption, photoemission, and quantum transport in metals. I also conducted research as a visiting scholar at Ludwig-Maximilians-Universität (LMU) in Munich, Germany.
           </p>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Interesses de Pesquisa:</h3>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Research Interests:</h3>
           <div class="tag-container">
             <span class="tag">Many-Body Physics</span>
+            <span class="tag">Non-Equilibrium Quantum Dynamics</span>
             <span class="tag">Matrix Product States (MPS/DMRG)</span>
             <span class="tag">Numerical Renormalization Group (NRG)</span>
-            <span class="tag">Efeito Kondo & Fármions Pesados</span>
-            <span class="tag">Transições de Fase Quânticas</span>
-            <span class="tag">Non-Equilibrium Quantum Dynamics</span>
+            <span class="tag">Kondo Effect & Heavy Fermions</span>
+            <span class="tag">Quantum Phase Transitions</span>
           </div>
         </div>
 
         <div class="about-card">
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Linguagens & Tecnologias</h3>
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Languages & Programming</h3>
           <div class="skills-list">
             <span class="badge">C++</span>
             <span class="badge">Python</span>
@@ -550,58 +586,58 @@
             <span class="badge">LaTeX</span>
           </div>
 
-          <h3 style="font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem;">Idiomas</h3>
+          <h3 style="font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem;">Languages Spoken</h3>
           <p style="font-size: 0.95rem; color: var(--text-muted);">
-            • Português (Nativo)<br>
-            • Inglês (Avançado)
+            • Portuguese (Native)<br>
+            • English (Advanced)
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FORMAÇÃO ACADÊMICA -->
+  <!-- EDUCATION -->
   <section id="education">
     <div class="container fade-in">
-      <h2 class="section-title">Formação Acadêmica</h2>
+      <h2 class="section-title">Education</h2>
       <div class="timeline">
         
         <div class="timeline-item">
-          <div class="timeline-date">Avo. 2022 – Ago. 2027 (Em andamento)</div>
-          <h3 class="timeline-title">Doutorado em Física Teórica</h3>
-          <div class="timeline-subtitle">Universidade de São Paulo (USP) - São Carlos, Brasil • GPA: 10.0 / 10.0</div>
+          <div class="timeline-date">Aug 2022 – Aug 2027 (Expected)</div>
+          <h3 class="timeline-title">PhD in Theoretical Physics</h3>
+          <div class="timeline-subtitle">University of São Paulo (USP), São Carlos, Brazil • GPA: 10.0 / 10.0</div>
           <p style="font-size: 0.95rem; color: var(--text-muted);">
-            Tese: Absorpção de raios-X, fotoemissão e transporte dependente do tempo.<br>
-            Orientador: Prof. Dr. Luiz Nunes de Oliveira. Bolsista FAPESP.
+            Thesis: X-ray absorption, photoemission, and time-dependent transport.<br>
+            Advisor: Prof. Dr. Luiz Nunes de Oliveira. FAPESP Fellow.
           </p>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-date">Jun. 2024 – Jun. 2025</div>
-          <h3 class="timeline-title">Estágio de Pesquisa no Exterior (BEPE)</h3>
-          <div class="timeline-subtitle">Ludwig-Maximilians-Universität München (LMU) - Munique, Alemanha</div>
+          <div class="timeline-date">Jun 2024 – Jun 2025</div>
+          <h3 class="timeline-title">Research Internship Abroad (BEPE)</h3>
+          <div class="timeline-subtitle">Ludwig-Maximilians-Universität München (LMU), Munich, Germany</div>
           <p style="font-size: 0.95rem; color: var(--text-muted);">
-            Funções espectrais a partir de cálculos DMRG do estado fundamental.<br>
-            Supervisão: Prof. Dr. Jan von Delft. Bolsista FAPESP.
+            Spectral functions from ground-state DMRG computations.<br>
+            Supervisor: Prof. Dr. Jan von Delft. FAPESP Fellow.
           </p>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-date">Fev. 2021 – Jul. 2022</div>
-          <h3 class="timeline-title">Mestrado em Física Teórica</h3>
-          <div class="timeline-subtitle">Universidade de São Paulo (USP) - São Carlos, Brasil • GPA: 10.0 / 10.0</div>
+          <div class="timeline-date">Feb 2021 – Jul 2022</div>
+          <h3 class="timeline-title">MSc in Theoretical Physics</h3>
+          <div class="timeline-subtitle">University of São Paulo (USP), São Carlos, Brazil • GPA: 10.0 / 10.0</div>
           <p style="font-size: 0.95rem; color: var(--text-muted);">
-            Dissertação: Interação RKKY induzida por hibridização entre orbitais f.<br>
-            Orientador: Prof. Dr. Valter Luiz Líbero. Bolsista CAPES.
+            Thesis: RKKY interaction induced by hybridization between f-states.<br>
+            Advisor: Prof. Dr. Valter Luiz Líbero. CAPES Fellow.
           </p>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-date">Fev. 2017 – Fev. 2021</div>
-          <h3 class="timeline-title">Bacharelado em Física Computacional</h3>
-          <div class="timeline-subtitle">Universidade de São Paulo (USP) - São Carlos, Brasil • GPA: 8.6 / 10.0</div>
+          <div class="timeline-date">Feb 2017 – Feb 2021</div>
+          <h3 class="timeline-title">BSc in Computational Physics</h3>
+          <div class="timeline-subtitle">University of São Paulo (USP), São Carlos, Brazil • GPA: 8.6 / 10.0</div>
           <p style="font-size: 0.95rem; color: var(--text-muted);">
-            Iniciação Científica: Interação de troca entre íons de cério devido à hibridização com elétrons de condução. Bolsista FAPESP.
+            Undergraduate Research: Exchange interaction between cerium ions due to hybridization with conduction electrons. FAPESP Fellow.
           </p>
         </div>
 
@@ -609,48 +645,48 @@
     </div>
   </section>
 
-  <!-- PUBLICAÇÕES -->
+  <!-- PUBLICATIONS -->
   <section id="publications">
     <div class="container fade-in">
-      <h2 class="section-title">Publicações & Produção Acadêmica</h2>
+      <h2 class="section-title">Publications & Research</h2>
       
       <div class="tabs">
-        <button class="tab-btn active" onclick="openTab(event, 'articles')">Artigos em Periódicos</button>
-        <button class="tab-btn" onclick="openTab(event, 'preprints')">Preprints & Submetidos</button>
-        <button class="tab-btn" onclick="openTab(event, 'inprep')">Em Preparação</button>
-        <button class="tab-btn" onclick="openTab(event, 'thesis')">Dissertação</button>
+        <button class="tab-btn active" onclick="openTab(event, 'articles')">Journal Articles</button>
+        <button class="tab-btn" onclick="openTab(event, 'preprints')">Preprints & Submitted</button>
+        <button class="tab-btn" onclick="openTab(event, 'inprep')">In Preparation</button>
+        <button class="tab-btn" onclick="openTab(event, 'thesis')">Master's Thesis</button>
       </div>
 
-      <!-- TABS: ARTIGOS -->
+      <!-- TABS: ARTICLES -->
       <div id="articles" class="tab-content active">
         <div class="publication-card">
           <div class="pub-title">Enhancing Surface Termination and Stability of Hybrid Halide Perovskites via Phosphonic Acid Passivation</div>
           <div class="pub-authors">Ribeiro, I. C.; Ornelas-Cruz, I.; <strong>Picoli, F. D.</strong>; Oliveira, L. N.; Lima, M. P.; Nogueira, A. F.; da Silva, J. L. F.</div>
-          <div class="pub-journal">ACS Omega (2026) • <a href="https://doi.org/10.1021/acsomega.5c12245" target="_blank">DOI: 10.1021/acsomega.5c12245</a></div>
+          <div class="pub-journal">ACS Omega (2026) • <a href="https://doi.org/10.1021/acsomega.5c12245" target="_blank" rel="noopener">DOI: 10.1021/acsomega.5c12245</a></div>
         </div>
 
         <div class="publication-card">
           <div class="pub-title">Tracking Adiabaticity in Non-Equilibrium Many-Body Systems: The Hard Case of the X-ray Photoemission in Metals</div>
           <div class="pub-authors">Diniz, G. S. R.; <strong>Picoli, F. D.</strong>; Oliveira, L. N.; D'Amico, I.</div>
-          <div class="pub-journal">Physical Review A, v. 113, p. 022207 (2026) • <a href="https://doi.org/10.1103/m17z-4g58" target="_blank">DOI: 10.1103/m17z-4g58</a></div>
+          <div class="pub-journal">Physical Review A, v. 113, p. 022207 (2026) • <a href="https://doi.org/10.1103/m17z-4g58" target="_blank" rel="noopener">DOI: 10.1103/m17z-4g58</a></div>
         </div>
 
         <div class="publication-card">
           <div class="pub-title">The Sommerfeld-Watson transformation in teaching condensed matter physics: analytical diagonalization of Fermi gas-like models</div>
           <div class="pub-authors">Diniz, G. S. R.; <strong>Picoli, F. D.</strong>; Lenzarini, M. P.</div>
-          <div class="pub-journal">Revista Brasileira de Ensino de Física, v. 47, e20250103 (2025) • <a href="https://doi.org/10.1590/1806-9126-RBEF-2025-0103" target="_blank">DOI: 10.1590/1806-9126-RBEF-2025-0103</a></div>
+          <div class="pub-journal">Revista Brasileira de Ensino de Física, v. 47, e20250103 (2025) • <a href="https://doi.org/10.1590/1806-9126-RBEF-2025-0103" target="_blank" rel="noopener">DOI: 10.1590/1806-9126-RBEF-2025-0103</a></div>
         </div>
 
         <div class="publication-card">
           <div class="pub-title">Impact of Thin Film Thickness on the Structural, Energetic and Optoelectronic Properties of Two-Dimensional FPEA2(MAn-1)PbnI3n+1 Perovskites</div>
           <div class="pub-authors">Ribeiro, I.C.; <strong>Picoli, F. D.</strong>; Morais, P. I. R.; Fonseca, A. F. V.; Oliveira, L. N.; Nogueira, A. F.; da Silva, J. L. F.</div>
-          <div class="pub-journal">ACS Applied Energy Materials, v. 8, p. 3346 (2025) • <a href="https://doi.org/10.1021/acsaem.4c02800" target="_blank">DOI: 10.1021/acsaem.4c02800</a></div>
+          <div class="pub-journal">ACS Applied Energy Materials, v. 8, p. 3346 (2025) • <a href="https://doi.org/10.1021/acsaem.4c02800" target="_blank" rel="noopener">DOI: 10.1021/acsaem.4c02800</a></div>
         </div>
 
         <div class="publication-card">
           <div class="pub-title">Non-asymptotic Coqblin-Schrieffer interaction between local f¹-states</div>
           <div class="pub-authors"><strong>Picoli, F. D.</strong>; Líbero, V. L.</div>
-          <div class="pub-journal">Journal of Magnetism and Magnetic Materials, v. 550, p. 169062 (2022) • <a href="https://doi.org/10.1016/j.jmmm.2022.169062" target="_blank">DOI: 10.1016/j.jmmm.2022.169062</a></div>
+          <div class="pub-journal">Journal of Magnetism and Magnetic Materials, v. 550, p. 169062 (2022) • <a href="https://doi.org/10.1016/j.jmmm.2022.169062" target="_blank" rel="noopener">DOI: 10.1016/j.jmmm.2022.169062</a></div>
         </div>
       </div>
 
@@ -659,17 +695,17 @@
         <div class="publication-card">
           <div class="pub-title">Time-dependent approach to the X-ray photoemission problem</div>
           <div class="pub-authors"><strong>Picoli, F. D.</strong>; Diniz, G. S. R.; Lenzarini, M. P.; D'Amico, I.; Oliveira, L. N.</div>
-          <div class="pub-journal">arXiv:2502.11317 (2025) • <a href="https://arxiv.org/pdf/2502.11317" target="_blank">arXiv Link</a></div>
+          <div class="pub-journal">arXiv:2502.11317 (2025) • <a href="https://arxiv.org/pdf/2502.11317" target="_blank" rel="noopener">arXiv Link</a></div>
         </div>
 
         <div class="publication-card">
           <div class="pub-title">Decoherence due to the sudden coupling of an impurity to a metal</div>
           <div class="pub-authors"><strong>Picoli, F. D.</strong>; Diniz, G. S. R.; Oliveira, L. N.</div>
-          <div class="pub-journal">arXiv:2605.01612 (2026) • <a href="https://arxiv.org/pdf/2605.01612" target="_blank">arXiv Link</a></div>
+          <div class="pub-journal">arXiv:2605.01612 (2026) • <a href="https://arxiv.org/pdf/2605.01612" target="_blank" rel="noopener">arXiv Link</a></div>
         </div>
       </div>
 
-      <!-- TABS: EM PREPARAÇÃO -->
+      <!-- TABS: IN PREPARATION -->
       <div id="inprep" class="tab-content">
         <div class="publication-card">
           <div class="pub-title">Tangent-Space Krylov Solver for Quantum Impurity Models</div>
@@ -677,7 +713,7 @@
         </div>
 
         <div class="publication-card">
-          <div class="pub-title">Spin-density functional for alternating Heisenberg spins-chains</div>
+          <div class="pub-title">Spin-density functional for alternating Heisenberg spin chains</div>
           <div class="pub-authors"><strong>Picoli, F. D.</strong>; Montalvão, R. W.; Líbero, V. L.</div>
         </div>
 
@@ -687,22 +723,22 @@
         </div>
       </div>
 
-      <!-- TABS: DISSERTAÇÃO -->
+      <!-- TABS: THESIS -->
       <div id="thesis" class="tab-content">
         <div class="publication-card">
-          <div class="pub-title">Interação RKKY induzida por hibridização entre orbitais f (Mestrado)</div>
+          <div class="pub-title">RKKY interaction induced by hybridization between f-states (MSc Thesis)</div>
           <div class="pub-authors"><strong>Picoli, F. D.</strong></div>
-          <div class="pub-journal">Instituto de Física de São Carlos, Universidade de São Paulo (2022) • <a href="https://doi.org/10.11606/D.76.2022.tde-18082022-094536" target="_blank">DOI: 10.11606/D.76.2022.tde-18082022-094536</a></div>
+          <div class="pub-journal">São Carlos Institute of Physics, University of São Paulo (2022) • <a href="https://doi.org/10.11606/D.76.2022.tde-18082022-094536" target="_blank" rel="noopener">DOI: 10.11606/D.76.2022.tde-18082022-094536</a></div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CÓDIGOS ABERTOS / REPOSITÓRIOS -->
+  <!-- OPEN SOURCE / PROJECTS -->
   <section id="projects">
     <div class="container fade-in">
-      <h2 class="section-title">Códigos Abertos & Repositórios</h2>
+      <h2 class="section-title">Open Source Repositories</h2>
       <div class="projects-grid">
 
         <!-- Card 1 -->
@@ -713,10 +749,10 @@
               <span class="badge">C++ / Python</span>
             </div>
             <p class="project-desc">
-              Implementação do Grupo de Renormalização Numérico (NRG - Numerical Renormalization Group) aplicado ao Modelo de Impureza de Anderson.
+              Implementation of the Numerical Renormalization Group (NRG) method applied to the Anderson Impurity Model for quantum systems.
             </p>
           </div>
-          <a href="https://github.com/FelipePicoli/Anderson-Model-NRG" target="_blank" rel="noopener" class="btn btn-secondary" style="align-self: flex-start;">Acessar Repositório &rarr;</a>
+          <a href="https://github.com/FelipePicoli/Anderson-Model-NRG" target="_blank" rel="noopener" class="btn btn-secondary" style="align-self: flex-start;">Open Repository &rarr;</a>
         </div>
 
         <!-- Card 2 -->
@@ -727,67 +763,66 @@
               <span class="badge">Fortran / Python</span>
             </div>
             <p class="project-desc">
-              Cálculos da Teoria do Funcional da Densidade (DFT) e TD-DFT focados no modelo de Hubbard para sistemas fortemente correlacionados.
+              Density Functional Theory (DFT) and Time-Dependent DFT calculations focused on the Hubbard Model for strongly correlated systems.
             </p>
           </div>
-          <a href="https://github.com/FelipePicoli/Hubbard-Model---DFT-and-TD-DFT" target="_blank" rel="noopener" class="btn btn-secondary" style="align-self: flex-start;">Acessar Repositório &rarr;</a>
+          <a href="https://github.com/FelipePicoli/Hubbard-Model---DFT-and-TD-DFT" target="_blank" rel="noopener" class="btn btn-secondary" style="align-self: flex-start;">Open Repository &rarr;</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- FOOTER & CONTATO -->
+  <!-- FOOTER & CONTACT -->
   <footer id="contact" class="footer">
     <div class="container fade-in">
-      <h2 class="section-title">Contato & Referências</h2>
+      <h2 class="section-title">Contact & References</h2>
       
       <div class="contact-grid">
         <div>
-          <h3 style="margin-bottom: 1rem; color: #fff;">Entre em Contato</h3>
+          <h3 style="margin-bottom: 1rem; color: #fff;">Get in Touch</h3>
           <p style="color: var(--text-muted); margin-bottom: 1rem;">
-            Aberto para colaborações de pesquisa, discussões sobre métodos numéricos de muitos corpos e oportunidades acadêmicas.
+            Open for research collaborations, discussions on numerical many-body methods, and academic opportunities.
           </p>
           <p style="margin-bottom: 0.5rem;">
-            <strong>E-mail USP:</strong> <a href="mailto:felipepicoli@usp.br">felipepicoli@usp.br</a>
+            <strong>USP Email:</strong> <a href="mailto:felipepicoli@usp.br">felipepicoli@usp.br</a>
           </p>
           <p style="margin-bottom: 1.5rem;">
-            <strong>E-mail Pessoal:</strong> <a href="mailto:felipedonipicoli@gmail.com">felipedonipicoli@gmail.com</a>
+            <strong>Personal Email:</strong> <a href="mailto:felipedonipicoli@gmail.com">felipedonipicoli@gmail.com</a>
           </p>
           <p style="color: var(--text-muted);">
-            <strong>Telefone:</strong> +55 19 981290593
+            <strong>Phone:</strong> +55 19 981290593
           </p>
         </div>
 
         <div>
-          <h3 style="margin-bottom: 1rem; color: #fff;">Referências Acadêmicas</h3>
+          <h3 style="margin-bottom: 1rem; color: #fff;">Academic References</h3>
           
           <div class="ref-card" style="margin-bottom: 0.75rem;">
             <strong style="color: #fff;">Prof. Dr. Luiz Nunes de Oliveira</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Professor Titular na USP • <a href="mailto:luizno@usp.br">luizno@usp.br</a></p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full Professor at USP • <a href="mailto:luizno@usp.br">luizno@usp.br</a></p>
+          </div>
+          <div class="ref-card">
+            <strong style="color: #fff;">Prof. Dr. Irene D'Amico</strong>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full Professor at University of York • <a href="mailto:irene.damico@york.ac.uk">irene.damico@york.ac.uk</a></p>
           </div>
 
           <div class="ref-card" style="margin-bottom: 0.75rem;">
             <strong style="color: #fff;">Prof. Dr. Jan von Delft</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Professor Titular na LMU München • <a href="mailto:vondelft@lmu.de">vondelft@lmu.de</a></p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Full Professor at LMU München • <a href="mailto:vondelft@lmu.de">vondelft@lmu.de</a></p>
           </div>
 
-          <div class="ref-card">
-            <strong style="color: #fff;">Prof. Dr. Irene D'Amico</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Professora Titular na University of York • <a href="mailto:irene.damico@york.ac.uk">irene.damico@york.ac.uk</a></p>
-          </div>
         </div>
       </div>
 
       <div class="copyright">
-        &copy; 2026 Felipe Donizete Picoli. Desenvolvido para portfólio acadêmico e científico.
+        &copy; 2026 Felipe Donizete Picoli. Academic & Scientific Portfolio.
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPT JS PARA INTERATIVIDADE -->
+  <!-- JAVASCRIPT FOR INTERACTIVITY -->
   <script>
-    // Gerenciador de Abas de Publicações
     function openTab(evt, tabName) {
       const tabContents = document.getElementsByClassName("tab-content");
       for (let i = 0; i < tabContents.length; i++) {
@@ -803,7 +838,6 @@
       evt.currentTarget.classList.add("active");
     }
 
-    // Animação de Entrada suave no Scroll (Intersection Observer)
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
