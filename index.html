@@ -138,7 +138,7 @@
       color: var(--accent-blue);
     }
 
-    /* HERO SECTION */
+    /* HERO SECTION ALINHADA */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -148,24 +148,28 @@
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 1050px;
     }
 
-    .hero-header-container {
+    .hero-grid {
       display: flex;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      align-items: flex-start;
+      gap: 2.5rem;
     }
 
     .profile-avatar {
-      width: 165px;
-      height: 165px;
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--accent-blue);
       box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
       flex-shrink: 0;
+      margin-top: 0.5rem;
+    }
+
+    .hero-text-content {
+      flex: 1;
     }
 
     .hero-tag {
@@ -192,12 +196,13 @@
       font-size: 1.25rem;
       color: var(--text-muted);
       font-weight: 300;
+      margin-bottom: 1.25rem;
     }
 
     .hero-description {
       font-size: 1.1rem;
       color: var(--text-muted);
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       max-width: 720px;
     }
 
@@ -492,16 +497,16 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero-title { font-size: 2.3rem; }
-      .hero-header-container {
+      .hero-grid {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1.25rem;
+        gap: 1.5rem;
       }
       .profile-avatar {
-        width: 125px;
-        height: 125px;
+        width: 140px;
+        height: 140px;
       }
+      .hero-title { font-size: 2.3rem; }
       .about-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
@@ -528,25 +533,26 @@
   <section class="hero">
     <div class="container hero-content fade-in">
       
-      <!-- HEADER COM FOTO E NOME -->
-      <div class="hero-header-container">
+      <div class="hero-grid">
+        <!-- Imagem à esquerda -->
         <img src="profile.jpg" alt="Felipe Donizete Picoli" class="profile-avatar">
         
-        <div>
+        <!-- Conteúdo textual e botões à direita -->
+        <div class="hero-text-content">
           <span class="hero-tag">PhD Candidate in Theoretical Physics</span>
           <h1 class="hero-title">Felipe Donizete Picoli</h1>
-          <h2 class="hero-subtitle">Many-Body Physics</h2>
+          <h2 class="hero-subtitle">Many-Body Physics • Strongly Correlated Electron Systems</h2>
+          
+          <p class="hero-description">
+            Specialist in simulating and studying non-equilibrium quantum dynamics and impurity systems. Experience in Numerical Renormalization Group (NRG), Matrix Product States (MPS/DMRG), and Strongly Correlated Systems.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View Open Source Code</a>
+            <a href="#publications" class="btn btn-secondary">Explore Publications</a>
+            <a href="https://github.com/FelipePicoli" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile</a>
+          </div>
         </div>
-      </div>
-
-      <p class="hero-description">
-        Specialist in simulating and studying non-equilibrium quantum dynamics and impurity systems. Experience in Numerical Renormalization Group (NRG), Matrix Product States (MPS/DMRG), and Strongly Correlated Systems.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Open Source Code</a>
-        <a href="#publications" class="btn btn-secondary">Explore Publications</a>
-        <a href="https://github.com/FelipePicoli" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile</a>
       </div>
 
     </div>
@@ -567,11 +573,11 @@
           <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Research Interests:</h3>
           <div class="tag-container">
             <span class="tag">Many-Body Physics</span>
-            <span class="tag">Non-Equilibrium Quantum Dynamics</span>
             <span class="tag">Matrix Product States (MPS/DMRG)</span>
             <span class="tag">Numerical Renormalization Group (NRG)</span>
             <span class="tag">Kondo Effect & Heavy Fermions</span>
             <span class="tag">Quantum Phase Transitions</span>
+            <span class="tag">Non-Equilibrium Quantum Dynamics</span>
           </div>
         </div>
 
@@ -802,11 +808,12 @@
             <strong style="color: #fff;">Prof. Dr. Luiz Nunes de Oliveira</strong>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Full Professor at USP • <a href="mailto:luizno@usp.br">luizno@usp.br</a></p>
           </div>
+
           <div class="ref-card">
             <strong style="color: #fff;">Prof. Dr. Irene D'Amico</strong>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Full Professor at University of York • <a href="mailto:irene.damico@york.ac.uk">irene.damico@york.ac.uk</a></p>
-          </div>
-
+          </div> 
+          
           <div class="ref-card" style="margin-bottom: 0.75rem;">
             <strong style="color: #fff;">Prof. Dr. Jan von Delft</strong>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Full Professor at LMU München • <a href="mailto:vondelft@lmu.de">vondelft@lmu.de</a></p>
