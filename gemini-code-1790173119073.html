@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felipe Donizete Picoli | Físico Teórico & Computacional</title>
+  
+  <!-- Tipografia Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS RESET & VARIAVEIS */
+    :root {
+      --bg-dark: #0a0c10;
+      --bg-card: #12161f;
+      --bg-card-hover: #181e2b;
+      --border-color: #202736;
+      --accent-blue: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    /* LAYOUT CONTAINERS */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border-color), transparent);
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 12, 16, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: padding 0.3s;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-blue);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      background: var(--accent-glow);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.35rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-blue);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background-color: #7dd3fc;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-card-hover);
+      border-color: var(--accent-blue);
+    }
+
+    /* BADGES & TAGS */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--accent-blue);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: monospace;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* SOBRE MIM */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* FORMAÇÃO ACADÊMICA */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.85rem;
+      top: 0.4rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      box-shadow: 0 0 10px var(--accent-blue);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .timeline-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* PUBLICAÇÕES (TABS) */
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.75rem 1rem;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: var(--accent-blue);
+      border-bottom-color: var(--accent-blue);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .publication-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.25s;
+    }
+
+    .publication-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .pub-title {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-authors {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-journal {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* CÓDIGOS ABERTOS / PROJETOS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* FOOTER & CONTATO */
+    .footer {
+      padding: 4rem 0 2rem;
+      background: #06080a;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .ref-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.25rem;
+      border-radius: 8px;
+    }
+
+    .copyright {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; } /* Pode ser expandido com menu hambúrguer se necessário */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">Felipe <span>Picoli</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#education">Formação</a></li>
+        <li><a href="#publications">Publicações</a></li>
+        <li><a href="#projects">Códigos Abertos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-content fade-in">
+      <span class="hero-tag">Doutorando em Física Teórica</span>
+      <h1 class="hero-title">Felipe Donizete Picoli</h1>
+      <h2 class="hero-subtitle">Física de Muitos Corpos • Sistemas Eletrônicos Fortemente Correlacionados</h2>
+      <p class="hero-description">
+        Especialista na simulação e estudo de dinâmica quântica fora do equilíbrio, transições de fase e emaranhamento quântico. Experiência avançada em Matrix Product States (MPS/DMRG), Numerical Renormalization Group (NRG) e Efeito Kondo.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">Ver Códigos & Projetos</a>
+        <a href="#publications" class="btn btn-secondary">Explorar Publicações</a>
+        <a href="https://github.com/FelipePicoli" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MIM -->
+  <section id="about">
+    <div class="container fade-in">
+      <h2 class="section-title">Sobre Mim</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <p style="margin-bottom: 1rem;">
+            Sou físico computacional e teórico focado no desenvolvimento de métodos numéricos para descrever sistemas de muitos corpos quânticos e fenômenos de impurezas quânticas. 
+          </p>
+          <p style="margin-bottom: 1.5rem;">
+            Atualmente, faço doutorado no Instituto de Física de São Carlos (USP), investigando espalhamento e fotoemissão de raios-X dependentes do tempo em metais, além de ter realizado estágio de pesquisa na Ludwig-Maximilians-Universität (LMU) em Munique, Alemanha.
+          </p>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Interesses de Pesquisa:</h3>
+          <div class="tag-container">
+            <span class="tag">Many-Body Physics</span>
+            <span class="tag">Matrix Product States (MPS/DMRG)</span>
+            <span class="tag">Numerical Renormalization Group (NRG)</span>
+            <span class="tag">Efeito Kondo & Fármions Pesados</span>
+            <span class="tag">Transições de Fase Quânticas</span>
+            <span class="tag">Non-Equilibrium Quantum Dynamics</span>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Linguagens & Tecnologias</h3>
+          <div class="skills-list">
+            <span class="badge">C++</span>
+            <span class="badge">Python</span>
+            <span class="badge">Julia</span>
+            <span class="badge">Fortran</span>
+            <span class="badge">Matlab</span>
+            <span class="badge">LaTeX</span>
+          </div>
+
+          <h3 style="font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem;">Idiomas</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            • Português (Nativo)<br>
+            • Inglês (Avançado)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO ACADÊMICA -->
+  <section id="education">
+    <div class="container fade-in">
+      <h2 class="section-title">Formação Acadêmica</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-date">Avo. 2022 – Ago. 2027 (Em andamento)</div>
+          <h3 class="timeline-title">Doutorado em Física Teórica</h3>
+          <div class="timeline-subtitle">Universidade de São Paulo (USP) - São Carlos, Brasil • GPA: 10.0 / 10.0</div>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            Tese: Absorpção de raios-X, fotoemissão e transporte dependente do tempo.<br>
+            Orientador: Prof. Dr. Luiz Nunes de Oliveira. Bolsista FAPESP.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Jun. 2024 – Jun. 2025</div>
+          <h3 class="timeline-title">Estágio de Pesquisa no Exterior (BEPE)</h3>
+          <div class="timeline-subtitle">Ludwig-Maximilians-Universität München (LMU) - Munique, Alemanha</div>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            Funções espectrais a partir de cálculos DMRG do estado fundamental.<br>
+            Supervisão: Prof. Dr. Jan von Delft. Bolsista FAPESP.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Fev. 2021 – Jul. 2022</div>
+          <h3 class="timeline-title">Mestrado em Física Teórica</h3>
+          <div class="timeline-subtitle">Universidade de São Paulo (USP) - São Carlos, Brasil • GPA: 10.0 / 10.0</div>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            Dissertação: Interação RKKY induzida por hibridização entre orbitais f.<br>
+            Orientador: Prof. Dr. Valter Luiz Líbero. Bolsista CAPES.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Fev. 2017 – Fev. 2021</div>
+          <h3 class="timeline-title">Bacharelado em Física Computacional</h3>
+          <div class="timeline-subtitle">Universidade de São Paulo (USP) - São Carlos, Brasil • GPA: 8.6 / 10.0</div>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            Iniciação Científica: Interação de troca entre íons de cério devido à hibridização com elétrons de condução. Bolsista FAPESP.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICAÇÕES -->
+  <section id="publications">
+    <div class="container fade-in">
+      <h2 class="section-title">Publicações & Produção Acadêmica</h2>
+      
+      <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'articles')">Artigos em Periódicos</button>
+        <button class="tab-btn" onclick="openTab(event, 'preprints')">Preprints & Submetidos</button>
+        <button class="tab-btn" onclick="openTab(event, 'inprep')">Em Preparação</button>
+        <button class="tab-btn" onclick="openTab(event, 'thesis')">Dissertação</button>
+      </div>
+
+      <!-- TABS: ARTIGOS -->
+      <div id="articles" class="tab-content active">
+        <div class="publication-card">
+          <div class="pub-title">Enhancing Surface Termination and Stability of Hybrid Halide Perovskites via Phosphonic Acid Passivation</div>
+          <div class="pub-authors">Ribeiro, I. C.; Ornelas-Cruz, I.; <strong>Picoli, F. D.</strong>; Oliveira, L. N.; Lima, M. P.; Nogueira, A. F.; da Silva, J. L. F.</div>
+          <div class="pub-journal">ACS Omega (2026) • <a href="https://doi.org/10.1021/acsomega.5c12245" target="_blank">DOI: 10.1021/acsomega.5c12245</a></div>
+        </div>
+
+        <div class="publication-card">
+          <div class="pub-title">Tracking Adiabaticity in Non-Equilibrium Many-Body Systems: The Hard Case of the X-ray Photoemission in Metals</div>
+          <div class="pub-authors">Diniz, G. S. R.; <strong>Picoli, F. D.</strong>; Oliveira, L. N.; D'Amico, I.</div>
+          <div class="pub-journal">Physical Review A, v. 113, p. 022207 (2026) • <a href="https://doi.org/10.1103/m17z-4g58" target="_blank">DOI: 10.1103/m17z-4g58</a></div>
+        </div>
+
+        <div class="publication-card">
+          <div class="pub-title">The Sommerfeld-Watson transformation in teaching condensed matter physics: analytical diagonalization of Fermi gas-like models</div>
+          <div class="pub-authors">Diniz, G. S. R.; <strong>Picoli, F. D.</strong>; Lenzarini, M. P.</div>
+          <div class="pub-journal">Revista Brasileira de Ensino de Física, v. 47, e20250103 (2025) • <a href="https://doi.org/10.1590/1806-9126-RBEF-2025-0103" target="_blank">DOI: 10.1590/1806-9126-RBEF-2025-0103</a></div>
+        </div>
+
+        <div class="publication-card">
+          <div class="pub-title">Impact of Thin Film Thickness on the Structural, Energetic and Optoelectronic Properties of Two-Dimensional FPEA2(MAn-1)PbnI3n+1 Perovskites</div>
+          <div class="pub-authors">Ribeiro, I.C.; <strong>Picoli, F. D.</strong>; Morais, P. I. R.; Fonseca, A. F. V.; Oliveira, L. N.; Nogueira, A. F.; da Silva, J. L. F.</div>
+          <div class="pub-journal">ACS Applied Energy Materials, v. 8, p. 3346 (2025) • <a href="https://doi.org/10.1021/acsaem.4c02800" target="_blank">DOI: 10.1021/acsaem.4c02800</a></div>
+        </div>
+
+        <div class="publication-card">
+          <div class="pub-title">Non-asymptotic Coqblin-Schrieffer interaction between local f¹-states</div>
+          <div class="pub-authors"><strong>Picoli, F. D.</strong>; Líbero, V. L.</div>
+          <div class="pub-journal">Journal of Magnetism and Magnetic Materials, v. 550, p. 169062 (2022) • <a href="https://doi.org/10.1016/j.jmmm.2022.169062" target="_blank">DOI: 10.1016/j.jmmm.2022.169062</a></div>
+        </div>
+      </div>
+
+      <!-- TABS: PREPRINTS -->
+      <div id="preprints" class="tab-content">
+        <div class="publication-card">
+          <div class="pub-title">Time-dependent approach to the X-ray photoemission problem</div>
+          <div class="pub-authors"><strong>Picoli, F. D.</strong>; Diniz, G. S. R.; Lenzarini, M. P.; D'Amico, I.; Oliveira, L. N.</div>
+          <div class="pub-journal">arXiv:2502.11317 (2025) • <a href="https://arxiv.org/pdf/2502.11317" target="_blank">arXiv Link</a></div>
+        </div>
+
+        <div class="publication-card">
+          <div class="pub-title">Decoherence due to the sudden coupling of an impurity to a metal</div>
+          <div class="pub-authors"><strong>Picoli, F. D.</strong>; Diniz, G. S. R.; Oliveira, L. N.</div>
+          <div class="pub-journal">arXiv:2605.01612 (2026) • <a href="https://arxiv.org/pdf/2605.01612" target="_blank">arXiv Link</a></div>
+        </div>
+      </div>
+
+      <!-- TABS: EM PREPARAÇÃO -->
+      <div id="inprep" class="tab-content">
+        <div class="publication-card">
+          <div class="pub-title">Tangent-Space Krylov Solver for Quantum Impurity Models</div>
+          <div class="pub-authors"><strong>Picoli, F. D.</strong>; Huang, M.; von Delft, J.; Gleis, A.</div>
+        </div>
+
+        <div class="publication-card">
+          <div class="pub-title">Spin-density functional for alternating Heisenberg spins-chains</div>
+          <div class="pub-authors"><strong>Picoli, F. D.</strong>; Montalvão, R. W.; Líbero, V. L.</div>
+        </div>
+
+        <div class="publication-card">
+          <div class="pub-title">Heavy qubit coupled to an XX chain</div>
+          <div class="pub-authors"><strong>Picoli, F. D.</strong>; Armando, J.; Fiúsa, G. C.; Landi, G. T.</div>
+        </div>
+      </div>
+
+      <!-- TABS: DISSERTAÇÃO -->
+      <div id="thesis" class="tab-content">
+        <div class="publication-card">
+          <div class="pub-title">Interação RKKY induzida por hibridização entre orbitais f (Mestrado)</div>
+          <div class="pub-authors"><strong>Picoli, F. D.</strong></div>
+          <div class="pub-journal">Instituto de Física de São Carlos, Universidade de São Paulo (2022) • <a href="https://doi.org/10.11606/D.76.2022.tde-18082022-094536" target="_blank">DOI: 10.11606/D.76.2022.tde-18082022-094536</a></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CÓDIGOS ABERTOS / REPOSITÓRIOS -->
+  <section id="projects">
+    <div class="container fade-in">
+      <h2 class="section-title">Códigos Abertos & Repositórios</h2>
+      <div class="projects-grid">
+
+        <!-- Card 1 -->
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-title">Anderson Model NRG</h3>
+              <span class="badge">C++ / Python</span>
+            </div>
+            <p class="project-desc">
+              Implementação do Grupo de Renormalização Numérico (NRG - Numerical Renormalization Group) aplicado ao Modelo de Impureza de Anderson.
+            </p>
+          </div>
+          <a href="https://github.com/FelipePicoli/Anderson-Model-NRG" target="_blank" rel="noopener" class="btn btn-secondary" style="align-self: flex-start;">Acessar Repositório &rarr;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-title">Hubbard Model - DFT & TD-DFT</h3>
+              <span class="badge">Fortran / Python</span>
+            </div>
+            <p class="project-desc">
+              Cálculos da Teoria do Funcional da Densidade (DFT) e TD-DFT focados no modelo de Hubbard para sistemas fortemente correlacionados.
+            </p>
+          </div>
+          <a href="https://github.com/FelipePicoli/Hubbard-Model---DFT-and-TD-DFT" target="_blank" rel="noopener" class="btn btn-secondary" style="align-self: flex-start;">Acessar Repositório &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER & CONTATO -->
+  <footer id="contact" class="footer">
+    <div class="container fade-in">
+      <h2 class="section-title">Contato & Referências</h2>
+      
+      <div class="contact-grid">
+        <div>
+          <h3 style="margin-bottom: 1rem; color: #fff;">Entre em Contato</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            Aberto para colaborações de pesquisa, discussões sobre métodos numéricos de muitos corpos e oportunidades acadêmicas.
+          </p>
+          <p style="margin-bottom: 0.5rem;">
+            <strong>E-mail USP:</strong> <a href="mailto:felipepicoli@usp.br">felipepicoli@usp.br</a>
+          </p>
+          <p style="margin-bottom: 1.5rem;">
+            <strong>E-mail Pessoal:</strong> <a href="mailto:felipedonipicoli@gmail.com">felipedonipicoli@gmail.com</a>
+          </p>
+          <p style="color: var(--text-muted);">
+            <strong>Telefone:</strong> +55 19 981290593
+          </p>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: 1rem; color: #fff;">Referências Acadêmicas</h3>
+          
+          <div class="ref-card" style="margin-bottom: 0.75rem;">
+            <strong style="color: #fff;">Prof. Dr. Luiz Nunes de Oliveira</strong>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Professor Titular na USP • <a href="mailto:luizno@usp.br">luizno@usp.br</a></p>
+          </div>
+
+          <div class="ref-card" style="margin-bottom: 0.75rem;">
+            <strong style="color: #fff;">Prof. Dr. Jan von Delft</strong>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Professor Titular na LMU München • <a href="mailto:vondelft@lmu.de">vondelft@lmu.de</a></p>
+          </div>
+
+          <div class="ref-card">
+            <strong style="color: #fff;">Prof. Dr. Irene D'Amico</strong>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Professora Titular na University of York • <a href="mailto:irene.damico@york.ac.uk">irene.damico@york.ac.uk</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 Felipe Donizete Picoli. Desenvolvido para portfólio acadêmico e científico.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT JS PARA INTERATIVIDADE -->
+  <script>
+    // Gerenciador de Abas de Publicações
+    function openTab(evt, tabName) {
+      const tabContents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+      }
+
+      const tabBtns = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+      }
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Animação de Entrada suave no Scroll (Intersection Observer)
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
